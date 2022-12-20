@@ -77,7 +77,8 @@ class App extends Component {
   };
 
   render() {
-    const { todos, filter, showModal } = this.state;
+    // const { todos, filter, showModal } = this.state;
+    const { todos, filter } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();

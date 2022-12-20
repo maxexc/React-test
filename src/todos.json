@@ -6,5 +6,5 @@
     "completed": false
   },
   { "id": "id-3", "text": "Привыкнуть к Redux", "completed": false },
-  { "id": "id-4", "text": "Попробовать React Hooks", "completed": true }
+  { "id": "id-4", "text": "Попробовать React Hooks", "completed": false }
 ]
