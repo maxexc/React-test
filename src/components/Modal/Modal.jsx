@@ -16,7 +16,7 @@ export default class Modal extends Component {
     //     this.props.onClose();
     //   }
     // });
-    
+
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
@@ -35,6 +35,10 @@ export default class Modal extends Component {
       this.props.onClose();
     }
   };
+
+  handleBackdropClick = event => {
+    console.log('Кликнули в бекдроп');
+  }
 
   // handleBackdropClick = event => {
   //   // console.log('Кликнули в бекдроп');
@@ -56,7 +60,7 @@ export default class Modal extends Component {
   // }
   render() {
     return createPortal(
-      <div className="Modal__backdrop">
+      <div className="Modal__backdrop" onClick={this.handleBackdropClick}>
         <div className="Modal__content">{this.props.children}</div>
       </div>,
       modalRoot,
