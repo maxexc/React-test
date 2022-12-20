@@ -76,7 +76,18 @@ class App extends Component {
     );
   };
 
+  // callback - не нужен, это внутренная логика самого компонента
+  // componentDidMount = () => {}
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('App componentDidUpdate');
+  }
+
   render() {
+    console.log('App render')
     // const { todos, filter, showModal } = this.state;
     const { todos, filter } = this.state;
     const totalTodoCount = todos.length;
