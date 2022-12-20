@@ -4,13 +4,13 @@ import Container from "./Container";
 import TodoList from "./TodoList";
 import TodoEditor from './TodoEditor';
 import Filter from './TodoFilter';
-// import initialTodos from '../todos.json';
+import initialTodos from '../todos.json';
 import Modal from "./Modal";
 
 class App extends Component {
   state = {
-    todos: [],
-    // todos: initialTodos,
+    // todos: [],
+    todos: initialTodos,
     filter: '',
     showModal: false,
   };

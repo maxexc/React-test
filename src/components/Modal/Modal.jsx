@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import { createPortal } from 'react-dom';
+import { createPortal } from 'react-dom';
 import './Modal.scss';
 
-// const modalRoot = document.querySelector('#modal-root');
+const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends Component {
   componentDidMount() {
@@ -34,11 +34,19 @@ export default class Modal extends Component {
   //   }
   // };
 
+  // render() {
+  //   return (
+  //     <div className="Modal__backdrop" >
+  //       <div className="Modal__content">{this.props.children}</div>
+  //     </div>
+  //   );
+  // }
   render() {
-    return (
-      <div className="Modal__backdrop" >
+    return createPortal(
+      <div className="Modal__backdrop">
         <div className="Modal__content">{this.props.children}</div>
-      </div>
+      </div>,
+      modalRoot,
     );
   }
   // render() {
