@@ -79,11 +79,22 @@ class App extends Component {
   // callback - не нужен, это внутренная логика самого компонента
   // componentDidMount = () => {}
   componentDidMount() {
-    console.log('App componentDidMount');
+    console.log('App componentDidMount'); 
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     console.log('App componentDidUpdate');
+
+    // this.setState() - зациклит rebder/state/метод и опять по кругу) !!!ВЫЗЫВАЕМ только при проверке какого-то условия
+
+    if(this.state.todos !== prevState.todos) {
+      console.log('Обновилось поле todos');
+
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+
+    // console.log(prevState);
+    // console.log(this.state);
   }
 
   render() {
