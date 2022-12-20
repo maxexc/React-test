@@ -12,7 +12,19 @@ class App extends Component {
     todos: [],
     // todos: initialTodos,
     filter: '',
-    // showModal: false,
+    showModal: false,
+  };
+
+  // toggleModal = () => {
+  //   this.setState(state => ({
+  //     showModal: !state.showModal,
+  //   }));
+  // };
+
+  toggleModal = () => {
+    this.setState(({showModal}) => ({
+      showModal: !showModal,
+    }));
   };
 
   addTodo = text => {
@@ -114,15 +126,16 @@ class App extends Component {
 
   render() {
     console.log('App render')
-    // const { todos, filter, showModal } = this.state;
-    const { todos, filter } = this.state;
+    const { todos, filter, showModal } = this.state;
+    // const { todos, filter } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
 
     return (
       <Container>
-        <Modal />
+        {showModal && <Modal />}
+        
         
         {/* <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
           <AddIcon width="40" height="40" fill="#fff" />
