@@ -9,8 +9,8 @@ import initialTodos from '../todos.json';
 
 class App extends Component {
   state = {
-    // todos: [],
-    todos: initialTodos,
+    todos: [],
+    // todos: initialTodos,
     filter: '',
     showModal: false,
   };
@@ -80,6 +80,21 @@ class App extends Component {
   // componentDidMount = () => {}
   componentDidMount() {
     console.log('App componentDidMount'); 
+
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos)
+
+    console.log(todos);
+    console.log(parsedTodos);
+
+    if (parsedTodos) {
+      this.setState({todos: parsedTodos});
+    }
+
+
+    // setTimeout(() =>{
+    //   this.setState({todos: parsedTodos});
+    // }, 2000)
   }
 
   componentDidUpdate(prevProps, prevState) {
