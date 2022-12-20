@@ -6,6 +6,7 @@ import TodoEditor from './TodoEditor';
 import Filter from './TodoFilter';
 import initialTodos from '../todos.json';
 import Modal from "./Modal";
+import IconButton from "./IconButton";
 
 class App extends Component {
   state = {
@@ -133,6 +134,7 @@ class App extends Component {
 
     return (
       <Container>
+        <IconButton>qweqwer</IconButton>
         <button type="button" onClick={this.toggleModal}>Открыть модалку</button>
         {showModal && (
           <Modal onClose={this.toggleModal}>
