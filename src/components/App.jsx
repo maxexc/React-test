@@ -135,19 +135,20 @@ class App extends Component {
     return (
       <Container>
         <button type="button" onClick={this.toggleModal}>Открыть модалку</button>
-        {showModal && <Modal>
-          <h1>Привет это контент модалки как children</h1>
-            <p> 
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-              Veniam ipsa voluptates, quibusdam nihil nostrum magnam harum 
-              nemo atque ducimus quos aspernatur, minus animi ipsam cupiditate 
-              iste nam placeat. Suscipit, doloremque sit sapiente laboriosam 
-              temporibus odit distinctio quibusdam sunt quo similique itaque 
-              debitis ullam fugiat magni magnam quia libero harum! Nesciunt!
-            </p>
-            <button type="button" onClick={this.toggleModal}>Закрыть</button>
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <h1>Привет это контент модалки как children</h1>
+              <p> 
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Veniam ipsa voluptates, quibusdam nihil nostrum magnam harum 
+                nemo atque ducimus quos aspernatur, minus animi ipsam cupiditate 
+                iste nam placeat. Suscipit, doloremque sit sapiente laboriosam 
+                temporibus odit distinctio quibusdam sunt quo similique itaque 
+                debitis ullam fugiat magni magnam quia libero harum! Nesciunt!
+              </p>
+              <button type="button" onClick={this.toggleModal}>Закрыть</button>
 
-        </Modal>}
+          </Modal>)}
         
         
         {/* <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
