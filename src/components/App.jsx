@@ -4,15 +4,15 @@ import Container from "./Container";
 import TodoList from "./TodoList";
 import TodoEditor from './TodoEditor';
 import Filter from './TodoFilter';
-import initialTodos from '../todos.json';
-// import Modal from "./Modal";
+// import initialTodos from '../todos.json';
+import Modal from "./Modal";
 
 class App extends Component {
   state = {
     todos: [],
     // todos: initialTodos,
     filter: '',
-    showModal: false,
+    // showModal: false,
   };
 
   addTodo = text => {
@@ -122,6 +122,7 @@ class App extends Component {
 
     return (
       <Container>
+        <Modal />
         
         {/* <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
           <AddIcon width="40" height="40" fill="#fff" />
