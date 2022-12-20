@@ -7,30 +7,34 @@ const modalRoot = document.querySelector('#modal-root');
 export default class Modal extends Component {
   componentDidMount() {
     console.log('Modal componentDidMount');
-    window.addEventListener('keydown', e => {
-      // console.log(e.code);
+    // window.addEventListener('keydown', e => {
+    //   // console.log(e.code);
 
-      if(e.code === 'Escape') {
-        console.log('Нажали ESC, нужно закрыть модалку')
+    //   if(e.code === 'Escape') {
+    //     console.log('Нажали ESC, нужно закрыть модалку')
 
-        this.props.onClose();
-      }
-    });
-    // window.addEventListener('keydown', this.handleKeyDown);
+    //     this.props.onClose();
+    //   }
+    // });
+    
+    window.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
     console.log('Modal componentWillUnmount');
-    // window.removeEventListener('keydown', this.handleKeyDown);
+    // window.removeEventListener('keydown',  e => {...('Нажали ESC, 
+    // - функция АНОНИМНАЯ!!! невозможно дать ссылку на неё - делаем её методом ;))
+
+    window.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  // handleKeyDown = e => {
-  //   if (e.code === 'Escape') {
-  //     console.log('Нажали ESC, нужно закрыть модалку');
+  handleKeyDown = e => {
+    if (e.code === 'Escape') {
+      console.log('Нажали ESC, нужно закрыть модалку');
 
-  //     this.props.onClose();
-  //   }
-  // };
+      this.props.onClose();
+    }
+  };
 
   // handleBackdropClick = event => {
   //   // console.log('Кликнули в бекдроп');

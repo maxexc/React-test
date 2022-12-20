@@ -23,7 +23,7 @@ class App extends Component {
     const todos = localStorage.getItem('todos');
     const parsedTodos = JSON.parse(todos)
 
-    console.log(todos);
+    // console.log(todos);
     console.log(parsedTodos);
 
     if (parsedTodos) {
@@ -125,9 +125,8 @@ class App extends Component {
   }; 
 
   render() {
-    console.log('App render')
+    // console.log('App render')
     const { todos, filter, showModal } = this.state;
-    // const { todos, filter } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
