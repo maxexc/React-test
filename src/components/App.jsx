@@ -15,18 +15,42 @@ class App extends Component {
     showModal: false,
   };
 
-  // toggleModal = () => {
-  //   this.setState(state => ({
-  //     showModal: !state.showModal,
-  //   }));
-  // };
+  // callback - не нужен, это внутренная логика самого компонента
+  // componentDidMount = () => {}
+  componentDidMount() {
+    console.log('App componentDidMount'); 
 
-  toggleModal = () => {
-    this.setState(({showModal}) => ({
-      showModal: !showModal,
-    }));
-  };
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos)
 
+    console.log(todos);
+    console.log(parsedTodos);
+
+    if (parsedTodos) {
+      this.setState({todos: parsedTodos});
+    }
+
+
+    // setTimeout(() =>{
+    //   this.setState({todos: parsedTodos});
+    // }, 2000)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+
+    // this.setState() - зациклит rebder/state/метод и опять по кругу) !!!ВЫЗЫВАЕМ только при проверке какого-то условия
+
+    if(this.state.todos !== prevState.todos) {
+      console.log('Обновилось поле todos');
+
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+
+    // console.log(prevState);
+    // console.log(this.state);
+  }
+  
   addTodo = text => {
     const todo = {
       id: shortid.generate(),
@@ -88,41 +112,17 @@ class App extends Component {
     );
   };
 
-  // callback - не нужен, это внутренная логика самого компонента
-  // componentDidMount = () => {}
-  componentDidMount() {
-    console.log('App componentDidMount'); 
+  // toggleModal = () => {
+  //   this.setState(state => ({
+  //     showModal: !state.showModal,
+  //   }));
+  // };
 
-    const todos = localStorage.getItem('todos');
-    const parsedTodos = JSON.parse(todos)
-
-    console.log(todos);
-    console.log(parsedTodos);
-
-    if (parsedTodos) {
-      this.setState({todos: parsedTodos});
-    }
-
-
-    // setTimeout(() =>{
-    //   this.setState({todos: parsedTodos});
-    // }, 2000)
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('App componentDidUpdate');
-
-    // this.setState() - зациклит rebder/state/метод и опять по кругу) !!!ВЫЗЫВАЕМ только при проверке какого-то условия
-
-    if(this.state.todos !== prevState.todos) {
-      console.log('Обновилось поле todos');
-
-      localStorage.setItem('todos', JSON.stringify(this.state.todos));
-    }
-
-    // console.log(prevState);
-    // console.log(this.state);
-  }
+  toggleModal = () => {
+    this.setState(({showModal}) => ({
+      showModal: !showModal,
+    }));
+  }; 
 
   render() {
     console.log('App render')
@@ -134,7 +134,20 @@ class App extends Component {
 
     return (
       <Container>
-        {showModal && <Modal />}
+        <button type="button" onClick={this.toggleModal}>Открыть модалку</button>
+        {showModal && <Modal>
+          <h1>Привет это контент модалки как children</h1>
+            <p> 
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              Veniam ipsa voluptates, quibusdam nihil nostrum magnam harum 
+              nemo atque ducimus quos aspernatur, minus animi ipsam cupiditate 
+              iste nam placeat. Suscipit, doloremque sit sapiente laboriosam 
+              temporibus odit distinctio quibusdam sunt quo similique itaque 
+              debitis ullam fugiat magni magnam quia libero harum! Nesciunt!
+            </p>
+            <button type="button" onClick={this.toggleModal}>Закрыть</button>
+
+        </Modal>}
         
         
         {/* <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
