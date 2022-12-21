@@ -13,4 +13,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  fill: blue;
+  color: inherit;
+  &:hover {
+    fill: yellow;
+    color: red;
+    background-color: yellow;
+    box-shadow: 0px 1.5px 0px #5c5c5c;;
+  }
+}
+
+.SearchIcon {
+    fill: green;
+    &:hover {
+        fill: red;
+        color: red;
+        background-color: red;
+        box-shadow: 0px 1.5px 0px #5c5c5c;;
+      } 
 }

@@ -7,6 +7,7 @@ import Filter from './TodoFilter';
 import initialTodos from '../todos.json';
 import Modal from "./Modal";
 import IconButton from "./IconButton";
+import {ReactComponent as SearchIcon } from '../icons/search.svg'
 
 class App extends Component {
   state = {
@@ -134,7 +135,10 @@ class App extends Component {
 
     return (
       <Container>
-        <IconButton>qweqwer</IconButton>
+        
+        <IconButton onClick={this.toggleModal}>
+          <SearchIcon width="40" height="40"  style="fill: blue;" onmouseover="this.style.fill='#555';" onmouseout="this.style.fill='#333';" /> 
+        </IconButton>
         <button type="button" onClick={this.toggleModal}>Открыть модалку</button>
         {showModal && (
           <Modal onClose={this.toggleModal}>
