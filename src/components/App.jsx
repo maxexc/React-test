@@ -137,7 +137,7 @@ class App extends Component {
       <Container>
         
         <IconButton onClick={this.toggleModal}>
-          <SearchIcon width="40" height="40"  style="fill: blue;" onmouseover="this.style.fill='#555';" onmouseout="this.style.fill='#333';" /> 
+          <SearchIcon width="40" height="40"  fill="blue;" /> 
         </IconButton>
         <button type="button" onClick={this.toggleModal}>Открыть модалку</button>
         {showModal && (
