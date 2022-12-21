@@ -142,7 +142,7 @@ class App extends Component {
     return (
       <Container>
         
-        <IconButton onClick={this.toggleModalEditor}>
+        <IconButton onClick={this.toggleModalEditor} aria-label="Add todo" >
           <AddIcon width="40" height="40"  /> 
         </IconButton>
         {showModalEditor && (
