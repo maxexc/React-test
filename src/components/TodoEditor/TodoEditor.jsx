@@ -27,7 +27,7 @@ class TodoEditor extends Component {
           onChange={this.handleChange}
         ></textarea>
         <button type="submit" className="TodoEditor__button">
-          Сохранить
+          Save
         </button>
       </form>
     );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './IconButton.scss';
 
 const IconButton = ({ children, onClick, ...allyProps }) => (
-  <button type="button" className="IconButton" onClick={onClick} {...allyProps}>
+  <button type="button" title='Add Note' className="IconButton" onClick={onClick} {...allyProps}>
     {children}
   </button>
 );

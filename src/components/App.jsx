@@ -7,7 +7,7 @@ import Filter from './TodoFilter';
 import initialTodos from '../todos.json';
 import Modal from "./Modal";
 import IconButton from "./IconButton";
-import {ReactComponent as SearchIcon } from '../icons/search.svg'
+import {ReactComponent as AddIcon } from '../icons/add.svg'
 
 class App extends Component {
   state = {
@@ -15,6 +15,7 @@ class App extends Component {
     todos: initialTodos,
     filter: '',
     showModal: false,
+    showModalEditor: false,
   };
 
   // callback - не нужен, это внутренная логика самого компонента
@@ -126,9 +127,15 @@ class App extends Component {
     }));
   }; 
 
+  toggleModalEditor = () => {
+    this.setState(({showModalEditor}) => ({
+      showModalEditor: !showModalEditor,
+    }));
+  };  
+
   render() {
     // console.log('App render')
-    const { todos, filter, showModal } = this.state;
+    const { todos, filter, showModal, showModalEditor } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
@@ -136,13 +143,19 @@ class App extends Component {
     return (
       <Container>
         
-        <IconButton onClick={this.toggleModal}>
-          <SearchIcon width="40" height="40"  fill="blue;" /> 
+        <IconButton onClick={this.toggleModalEditor}>
+          <AddIcon width="40" height="40"  /> 
         </IconButton>
-        <button type="button" onClick={this.toggleModal}>Открыть модалку</button>
+        {showModalEditor && (
+          <Modal onClose={this.toggleModalEditor}>
+            <TodoEditor onSubmit={this.addTodo} />
+            <button type="button" onClick={this.toggleModalEditor}>Close</button>
+          </Modal>)}
+        
+        <button type="button" onClick={this.toggleModal}>Open Modal</button>
         {showModal && (
           <Modal onClose={this.toggleModal}>
-            <h1>Привет это контент модалки как children</h1>
+            <h1>Hi this is modal content as children</h1>
               <p> 
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                 Veniam ipsa voluptates, quibusdam nihil nostrum magnam harum 
@@ -151,8 +164,7 @@ class App extends Component {
                 temporibus odit distinctio quibusdam sunt quo similique itaque 
                 debitis ullam fugiat magni magnam quia libero harum! Nesciunt!
               </p>
-              <button type="button" onClick={this.toggleModal}>Закрыть</button>
-
+              <button type="button" onClick={this.toggleModal}>Close</button>
           </Modal>)}
         
         
@@ -168,11 +180,11 @@ class App extends Component {
 
         {/* TODO: вынести в отдельный компонент */}
         <div>
-          <p>Всего заметок: {totalTodoCount}</p>
-          <p>Выполнено: {completedTodoCount}</p>
+          <p>Total Notes: {totalTodoCount}</p>
+          <p>Executed: {completedTodoCount}</p>
         </div>
 
-        <TodoEditor onSubmit={this.addTodo} />
+        
 
         <Filter value={filter} onChange={this.changeFilter} />
 

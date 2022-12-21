@@ -15,7 +15,7 @@ const Todo = ({text, completed, onToggleCompleted, onDelete}) => (
             className="TodoList__btn"
             onClick={onDelete}
         >            
-            Удалить
+            Delete
             <DeleteIcon width="40" height="40"  />
         </button>
     </>
