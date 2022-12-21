@@ -33,7 +33,6 @@ class App extends Component {
       this.setState({todos: parsedTodos});
     }
 
-
     // setTimeout(() =>{
     //   this.setState({todos: parsedTodos});
     // }, 2000)
