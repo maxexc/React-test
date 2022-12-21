@@ -55,6 +55,9 @@
 
 .TodoList__btn {
   @extend %button;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
   margin-left: auto;
   border-radius: 4px;
@@ -62,10 +65,14 @@
   background-color: $indigo;
   color: $white;
   font-weight: 500;
+  fill: white; 
+  transition: color 100ms linear, fill 100ms linear;
 
   &:hover,
   &:focus {
     background-color: $indigo-accent;
+    color: yellow;
+    fill: yellow;
   }
 
   &:active {

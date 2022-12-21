@@ -1,4 +1,5 @@
 import React from "react";
+import {ReactComponent as DeleteIcon } from '../../icons/delete.svg'
 
 const Todo = ({text, completed, onToggleCompleted, onDelete}) => (
     <>
@@ -13,8 +14,9 @@ const Todo = ({text, completed, onToggleCompleted, onDelete}) => (
             type="button"
             className="TodoList__btn"
             onClick={onDelete}
-        >
+        >            
             Удалить
+            <DeleteIcon width="40" height="40"  />
         </button>
     </>
 );
