@@ -1,4 +1,73 @@
+// import { useState  } from "react";
+
+// const App = ({ someProp }) => {
+//   const [planets, setPlanets] = useState(["Earth", "Mars", "Jupiter", "Venus"]);
+//   const [query, setQuery] = useState("");
+//   const [clicks, setClicks] = useState(0);
+
+//   const filteredPlanets = planets.filter(planet => planet.includes(query));
+
+//   return (
+//     <div>
+//       <div>Some prop: {someProp}</div>
+//       <button onClick={() => setClicks(clicks + 1)}>
+//         Number of clicks: {clicks}
+//       </button>
+//       <div>
+//         {filteredPlanets.map(planet => (
+//           <div key={planet}>{planet}</div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   const [value, setValue] = useState(0);
+//   const btnRef = useRef();
+
+//   // Будет null на первом рендере
+//   // и ссылкой на DOM-элемент все последующие
+//   console.log(btnRef.current);
+
+//   useEffect(() => {
+//     // Эффект выполняется после монтирования,
+//     // поэтому всегда будет ссылкой на DOM-элемент
+//     console.log(btnRef.current);
+//   });
+
+//   const handleClick = () => {
+//     // Клики будут после монтирвоания,
+//     // поэтому всегда будет ссылкой на DOM-элемент
+//     console.log(btnRef.current);
+//   };
+
+//   return (
+//     <>
+//       <button onClick={() => setValue(value + 1)}>
+//         Update value to trigger re-render
+//       </button>
+//       <button ref={btnRef} onClick={handleClick}>
+//         Button with ref
+//       </button>
+//     </>
+//   );
+// };
+
 // import { useState, useEffect } from "react";
+
+// const App = () => {
+//   const [value, setValue] = useState(3);
+
+//   useEffect(() => {
+//     console.log(value);
+//     console.log("Updating phase: same when componentDidUpdate runs");
+//   }, [value]);
+//   //   console.log("Mouting phase: same when componentDidMount runs");
+//   // }, []);
+
+//   return <button onClick={() => setValue(value + 1)}>{value}</button>;
+// };
 
 // const App = () => {
 //   const [value, setValue] = useState(0);
